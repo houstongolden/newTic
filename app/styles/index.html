@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+
+
+</head>
+
+<body ng-app="" ng-init="forest= {hasWoodSprites: true, trees: [{id:1, type:'spruce', alive: true}, {id:2, type:'maple', alive: false}, {id:3, type:'oak', alive:false},{id:4, type:'birch',alive:true}],annualRainfall:'150cm'}
+
+  ticTacToe= [['X', '', 'O'], ['', 'X', ''], ['', '', 'O']];
+">
+
+<!-- <div ng-model="forest"> -->
+
+{{forest.trees.length}}
+<br />
+
+{{forest.trees[1].alive}}
+<br />
+
+{{forest.trees[4].type}}
+<br />
+
+<div ng-bind="forest.trees[3].type"></div>
+
+<select id="treeDropDown">
+<!-- 	<option ng-repeat="tree in forest.trees" value="{{tree.id}}">{{tree.id}} </option>
+
+	<option ng-repeat="tree in forest.trees | filter:{alive:true}">{{tree.type + " is " + (tree.alive ? "alive!" : "dead!" ) }}</option> -->
+
+	<option ng-repeat="tree in forest.trees | orderBy:'type':true">{{tree.type + " is " + (tree.alive ? "alive!" : "dead!" ) }}</option>
+</select>
+
+<br />
+</div>
+
+
+
+<div id="container" style="border: solid black">
+		<div ng-repeat="row in ticTacToe">
+			{{row}}
+				<div ng-repeat="column in row">{{row.column}}</div>
+				<div class="claerfix"></div>
+		</div>
+</div> 
+
+
+
+</body>
+</html> 
+<!-- 
+<option ng-repeat="tree in forest.trees" value="{{tree.id}}">{{tree.type + " is " + (tree.alive ? "alive!" : "dead!" ) }} </option> -->

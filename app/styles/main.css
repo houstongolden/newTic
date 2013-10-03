@@ -1,0 +1,241 @@
+.board {
+  width: 500px;
+  height: 500px;
+  text-align: center;
+  display: inline-block;
+  font-size: 100px;
+  opacity: .7;
+  font-family: 'Monoton';
+  padding: 0;
+}
+
+
+
+.xbox {
+  background-image: url("http://cloud-media.com/wp-content/uploads/2013/09/my-baby-photo.jpg");
+}
+
+.obox {
+  background-image: url("http://cloud-media.com/wp-content/uploads/2013/10/Profile-Nova-Explosion.jpg");
+}
+
+
+#headerBox {
+  background-color: black;
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  margin-top: -100px;
+  z-index: 5;
+}
+
+
+#nav {
+  width: 1000px;
+  height: 80px;
+  position: fixed; 
+  display: inline-block;
+  text-align: center;
+  z-index: 5; 
+
+}
+
+
+#nav ul li {
+  display: inline-block;
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Monoton';
+  padding: 0 5px 0 10px;
+  margin: -10px 5px 0;
+ 
+}
+
+
+#header ul {
+        margin:0 auto;
+        width:800px;
+        padding:12px;
+    list-style: none;
+}
+
+#header li {
+  float: left;
+  text-align: center;
+  font-size: 30px;
+  font-family: Trebuchet;
+}
+
+#header a {
+    padding:0 14px;
+    text-align:center;
+    display:block;
+    font-size: 30px;
+    font-family: Trebuchet;    
+}    
+    
+#header ul li a.logo {
+    background: url("http://cloud-media.com/wp-content/uploads/2013/09/Tic-Tac-Toe-io-beta-logo-1.png");
+    background-repeat:no-repeat;
+    height:120px;
+    width:800px;
+    padding: 0px;
+    margin-top: -35px;
+}
+
+#headerbox {
+  width: 750px;
+  height: auto;
+  margin: 20px 50px 5px auto;
+  position: relative;
+}
+
+
+
+#Levels {
+  text-align: center;
+}
+
+h2 {
+  margin: 0 auto;
+}
+
+body {  
+    font-family: 'Monoton'
+    font-size: 12px;
+    background-repeat:repeat-x;
+    background-position:top;
+    z-index: 1;
+}
+
+html { 
+  background: url(http://www.ewallpapers.eu/w_show/purple-and-blue-minimal-1920-1080-6599.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 1000px;
+  z-index: 3;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+#pop_up {
+  position: relative; 
+  width: 100%;
+  height: 440px;
+  border: 2px solid black;
+  background-color: black;
+  opacity: .9;
+  bottom: 485px;
+  padding: 1px;
+  text-align: center;
+  display: none;
+}
+
+
+#pop_up_2 {
+  position: relative; 
+  width: 100%;
+  height: 440px;
+  border: 2px solid black;
+  background-color: black;
+  opacity: .9;
+  bottom: 485px;
+  padding: 1px;
+  text-align: center;
+  display: none;
+}
+
+.gameContainer {
+  width: 800px;
+  height: auto;
+  position: relative;
+  z-index: 4;
+  margin-top: 100px;
+  margin-left: 200px;
+  text-align: center;
+
+}
+.socialButtons {
+  width: 800px;
+  margin: 20px 0 100px;
+  position: relative;
+  
+}
+
+#gameButtons {
+  float: left;
+  width: 400px; 
+  height: 200px;  
+
+}
+
+
+
+
+#page2 {
+  top: 10px;
+  bottom: 200px;
+}
+
+
+#friendsPage {
+  width: 400px;
+  text-align: center;
+  position: relative;
+  float: left;
+  margin-left: 380px;
+}
+
+
+
+h1 {
+  font: 80px, black, Trebuchet;
+  text-align: center;
+}
+
+
+
+.sqr {
+  background-color: #91BED4;
+  margin: 2px;
+  width: 138px;
+  height: 138px;
+  text-align: center;
+  display: inline-block;
+  font-size: 100px;
+  opacity: .7;
+  font-family: 'Monoton';
+}
+
+
+
+.style {clear:both;}
+
+.row1 {
+  display: inline-block;
+}
+.row2 {
+  display: inline-block;
+  
+}
+.row3 {
+  display: inline-block;
+  
+}
+
+
+.clearfix {
+  *zoom: 1;
+}
+
+.clearfix:after {
+     content: "";
+  clear: both;
+  display: table;
+}
+
