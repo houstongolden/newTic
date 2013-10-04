@@ -40,19 +40,10 @@
           <li><a href="#top"><img src="http://cloud-media.com/wp-content/uploads/2013/09/TicTacToe-GUI-Home-beta.png" /></a></li>
           <li><a href="#top"><img src="http://cloud-media.com/wp-content/uploads/2013/09/Tic-Tac-Toe-io-beta-logo-2.png" /> <!-- Home --></a></li>
           <li><a href="#level1"><img src="http://cloud-media.com/wp-content/uploads/2013/09/TicTacToe-GUI-Play-beta.png" /> <!-- Play --></a></li>
-          <li><a href="main.html"><img src="http://cloud-media.com/wp-content/uploads/2013/09/TicTacToe-GUI-Rematch-beta.png" /><!-- Rematch --></a></li>
+          <li><a ng-click="reset()"><img src="http://cloud-media.com/wp-content/uploads/2013/09/TicTacToe-GUI-Rematch-beta.png" /><!-- Rematch --></a></li>
           <li>
-          <a href="#level2"><img src="http://cloud-media.com/wp-content/uploads/2013/09/TicTacToe-GUI-Levels-beta.png" /><!-- Levels --></a>
-          <li><a id="friends" href="#friendsPage"><img src="http://cloud-media.com/wp-content/uploads/2013/09/TicTacToe-GUI-Friends-beta.png" /><!-- Friends --></a></li>
-<!--           <li>
-            <ul>
-                <li><a href="#level1">Level 1</a></li>
-                <li><a href="#level2">Level 2</a></li>
-                <li><a href="#level3">Level 3</a></li>
-                <li><a href="#level4">Level 4</a></li>
-                <li><a href="#level5">Level 5</a></li>
-
-            </ul></li> -->
+          <a ng-click="levelUp()"><img src="http://cloud-media.com/wp-content/uploads/2013/09/TicTacToe-GUI-Levels-beta.png" /><!-- Levels --></a>
+          <li><a ng-click="#friends"><img src="http://cloud-media.com/wp-content/uploads/2013/09/TicTacToe-GUI-Friends-beta.png" /><!-- Friends --></a></li>
         </ul>
     </div>
   </div>
@@ -68,29 +59,25 @@
 <div class="gameContainer">
     <div>
     Next Player: {{nextMove}}
-    <button ng-click="reset()">reset board</button>
-    <button ng-click="levelUp()">Level Up</button> 
+<!--<button ng-click="reset()">reset board</button>
+    <button ng-click="levelUp()">Level Up</button>  -->
 
     <br />
     <div class="winner" ng-show="winner">Player {{winner}} has won!</div>
       <table class="board">
         <tr ng-repeat="row in board">
-          <td ng-class="{xbox:cell == 'X', obox:cell == 'O'}" ng-repeat="cell in row" ng-style="cellStyle"
+          <td id="slide" ng-class="{xbox:cell == 'X', obox:cell == 'O'}" ng-repeat="cell in row" ng-style="cellStyle"
               ng-click="dropPiece($parent.$index, $index)">{{cell}}</td>
         </tr>
       </table>
   <br />
-<!--         <a href='#'><img ng-src="{{link}}"/></a>
+<!--    <a href='#'><img ng-src="{{link}}"/></a>
         <button ng-click="changeLink()">Change Photo</button> -->
     </div>
 </div>
 
-    </div>
-</div>
 
-
-
-
+<br />
 
 
 
@@ -98,10 +85,28 @@
 
 </div>
 
+</div>
 
-<!-- <div id="friendsPage">
+
+
+<div id="friendsPage">
   <a id="friends"></a>
- 
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+
+<br />
+<br/>
+<br/><br />
+<br/>
+<br/>
+
         <h1>Share Game With Your Friends:</h1> 
         <a href="http://www.facebook.com"><img src="http://cloud-media.com/wp-content/uploads/2013/09/Facebook.png" /></a>
         <a href="http://www.twitter.com"><img src="http://cloud-media.com/wp-content/uploads/2013/09/Twitter.png" /></a>
@@ -110,7 +115,7 @@
         <a href="http://www.google.com"><img src="http://cloud-media.com/wp-content/uploads/2013/09/Google-+.png" /></a>
         <a href="http://www.instagram.com"><img src="http://cloud-media.com/wp-content/uploads/2013/09/Instagram.png" /></a>
 
-</div> -->
+</div>
 
 </div>
 

@@ -8,17 +8,6 @@ function TicTacToeCntl($scope, $location) {
     'cursor': 'pointer'
   };
 
- //  function getProfilePhoto($scope) {
- //    $scope.link = 'http://cloud-media.com/wp-content/uploads/2013/09/my-baby-photo.jpg';
-
- //    $scope.changeLink = function() {
- //    $scope.link = 'https://farm9.staticflickr.com/8455/8048926748_1bc624e5c9_d.jpg';
- //    }
- // }
-
-
-
-
  
   $scope.reset = function() {
     $scope.board = [
