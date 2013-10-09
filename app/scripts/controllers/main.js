@@ -7,6 +7,82 @@ function TicTacToeCntl($scope, $location) {
     'vertical-align': 'middle',
     'cursor': 'pointer'
   };
+ 
+ $scope.Player1 = {name: 'Player1'}
+ $scope.Player2 = {name: 'Player2'}
+ 
+  $scope.update = function(user) {
+    $scope.master = angular.copy(user);
+  };
+
+
+  $scope.reset = function() {
+    $scope.board = [
+      ['', '', ''],
+      ['', '', ''],
+      ['', '', '']
+    ];
+    $scope.nextMove = 'X';
+    $scope.winner = '';
+
+  };
+
+  $scope.levelUp = function() {
+  $scope.board = [
+    ['', '', '', ''],
+    ['', '', '', ''],
+    ['', '', '', ''],
+    ['', '', '', '']
+  ];
+  $scope.nextMove = 'X';
+  $scope.winner = '';
+
+};
+
+ 
+  $scope.dropPiece = function(row, col) {
+    if (!$scope.winner && !$scope.board[row][col]) {
+      $scope.board[row][col] = $scope.nextMove;
+      $scope.nextMove = $scope.nextMove == 'X' ? 'O' : 'X';
+    }
+    $scope.grade();
+  };
+ 
+  $scope.reset();
+  $scope.$watch(function() { return $location.search().board;}, readUrl);
+ 
+  function setUrl() {
+    var rows = [];
+    angular.forEach($scope.board, function(row) {
+      rows.push(row.join(','));
+    });
+    $location.search({board: rows.join(';') + '/' + $scope.nextMove});
+  }
+ 
+  $scope.grade = function() {
+    var b = $scope.board;
+    $scope.winner =
+      row(0) || row(1) || row(2) ||
+      col(0) || col(1) || col(2) ||
+      diagonal(-1) || diagonal(1);
+    function row(row) { return same(b[row][0], b[row][1], b[row][2]);}
+    function col(col) { return same(b[0][col], b[1][col], b[2][col]);}
+    function diagonal(i) { return same(b[0][1-i], b[1][1], b[2][1+i]);}
+    function same(a, b, c) { return (a==b && b==c) ? a : '';};
+    console.log("hey");
+  }
+ 
+  function readUrl(value) {
+    if (value) {
+      value = value.split('/');
+      $scope.nextMove = value[1];
+      angular.forEach(value[0].split(';'), function(row, col){
+        $scope.board[col] = row.split(',');
+      });
+      grade();
+    }
+  }
+};
 
 
 // var sideLength = 8;
@@ -37,97 +113,7 @@ function TicTacToeCntl($scope, $location) {
 
   // };
 
- 
- $scope.Player1 = {name: 'Player1'}
- $scope.Player2 = {name: 'Player2'}
- 
-  $scope.update = function(user) {
-    $scope.master = angular.copy(user);
-  };
- 
-  $scope.reset = function() {
-    $scope.master = angular.copy($scope.user, $scope.master);
-  };
- 
-  $scope.reset();
 
-
-  $scope.reset = function() {
-    $scope.board = [
-      ['', '', ''],
-      ['', '', ''],
-      ['', '', '']
-    ];
-    $scope.nextMove = 'X';
-    $scope.winner = '';
-
-  };
-
-    $scope.levelUp = function() {
-    $scope.board = [
-      ['', '', '', ''],
-      ['', '', '', ''],
-      ['', '', '', ''],
-      ['', '', '', '']
-    ];
-    $scope.nextMove = 'X';
-    $scope.winner = '';
-
-  };
-
-    $scope.findImg = function(cell) {
-    switch(cell.val)
-    {
-      case "X":
-      return "http://cloud-media.com/wp-content/uploads/2013/09/my-baby-photo.jpg";
-      case "O":
-      return "http://cloud-media.com/wp-content/uploads/2013/10/Profile-Nova-Explosion.jpg";
-      case "":
-      return "1x1.png";
-    }
-  }
- 
-  $scope.dropPiece = function(row, col) {
-    if (!$scope.winner && !$scope.board[row][col]) {
-      $scope.board[row][col] = $scope.nextMove;
-      $scope.nextMove = $scope.nextMove == 'X' ? 'O' : 'X';
-    }
-  };
- 
-  $scope.reset();
-  $scope.$watch(function() { return $location.search().board;}, readUrl);
- 
-  // function setUrl() {
-  //   var rows = [];
-  //   angular.forEach($scope.board, function(row) {
-  //     rows.push(row.join(','));
-  //   });
-  //   $location.search({board: rows.join(';') + '/' + $scope.nextMove});
-  // }
- 
-  $scope.grade = function() {
-    var b = $scope.board;
-    $scope.winner =
-      row(0) || row(1) || row(2) ||
-      col(0) || col(1) || col(2) ||
-      diagonal(-1) || diagonal(1);
-    function row(row) { return same(b[row][0], b[row][1], b[row][2]);}
-    function col(col) { return same(b[0][col], b[1][col], b[2][col]);}
-    function diagonal(i) { return same(b[0][1-i], b[1][1], b[2][1+i]);}
-    function same(a, b, c) { return (a==b && b==c) ? a : '';};
-  }
- 
-  function readUrl(value) {
-    if (value) {
-      value = value.split('/');
-      $scope.nextMove = value[1];
-      angular.forEach(value[0].split(';'), function(row, col){
-        $scope.board[col] = row.split(',');
-      });
-      grade();
-    }
-  }
-};
 
 
 

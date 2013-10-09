@@ -1,50 +1,15 @@
-<!DOCTYPE html>
-
-<html ng-app>
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>TicTacToe</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
-
-
-    <link rel="stylesheet" href="../styles/normalize.css">
-    <link rel="stylesheet" type="text/css" href="../styles/main.css" />
-
-    <script src="../scripts/controllers/modernizr-2.6.2.min.js"> </script>
-
-    <script src="http://code.angularjs.org/1.2.0-rc.2/angular.min.js"></script>
-    <script src="http://code.angularjs.org/1.2.0-rc.2/angular-animate.min.js"></script>
-    <script src="../scripts/controllers/main.js"></script>
-
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-</head>
-
-
-<body>
   <div id="headerBox">
     <div id="nav">
         <ul>
           <li><a href="#top"><img src="http://cloud-media.com/wp-content/uploads/2013/09/TicTacToe-GUI-Home-beta.png" /></a></li>
           <li><a href="#top"><img src="http://cloud-media.com/wp-content/uploads/2013/09/Tic-Tac-Toe-io-beta-logo-2.png" /> <!-- Home --></a></li>
           <li><a href="#level1"><img src="http://cloud-media.com/wp-content/uploads/2013/09/TicTacToe-GUI-Play-beta.png" /> <!-- Play --></a></li>
-          <li><a ng-click="reset()"><img src="http://cloud-media.com/wp-content/uploads/2013/09/TicTacToe-GUI-Rematch-beta.png" /><!-- Rematch --></a></li>
-          <li>
-          <a ng-click="levelUp()"><img src="http://cloud-media.com/wp-content/uploads/2013/09/TicTacToe-GUI-Levels-beta.png" /><!-- Levels --></a>
-          <li><a ng-click="#friends"><img src="http://cloud-media.com/wp-content/uploads/2013/09/TicTacToe-GUI-Friends-beta.png" /><!-- Friends --></a></li>
+          <li><a href="#" ng-click="reset()"><img src="http://cloud-media.com/wp-content/uploads/2013/09/TicTacToe-GUI-Rematch-beta.png" /><!-- Rematch --></a></li>
+          <li><a href="#" ng-click="levelUp()"><img src="http://cloud-media.com/wp-content/uploads/2013/09/TicTacToe-GUI-Levels-beta.png" /><!-- Levels --></a>
+          <li><a href=""><img src="http://cloud-media.com/wp-content/uploads/2013/09/TicTacToe-GUI-Friends-beta.png" /><!-- Friends --></a></li>
         </ul>
     </div>
   </div>
-
-
 
 
 
@@ -54,15 +19,6 @@
 <div class="gameContainer">
 
     <div ng-controller="TicTacToeCntl">
-      <form novalidate class="css-form">
-        Name:
-        <input type="text" ng-model="user.name" required /><br />
-        <button><a ng-click="reset()">RESET</a></button>
-        <button ng-click="update(user)">SAVE</button>
-      </form>
-    <p>{{Player1.name}} : {{nextMove}} </p>
-    </div>    
-    
     <div class="winner" ng-show="winner">Player {{winner}} has won!</div>
       <div class="board">
         <div ng-repeat="row in board">
@@ -73,13 +29,7 @@
       </div>
     
 
-
-
 </div>
-
-
-<br />
-
 
 
 </div>
@@ -92,19 +42,11 @@
 
 <div id="friendsPage">
   <a id="friends"></a>
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+
 
 
 
 <br />
-<br/>
-<br/><br />
 <br/>
 <br/>
 
@@ -119,34 +61,3 @@
 </div>
 
 </div>
-
-<br />
-
-
-
-
-
-
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-        <!-- Add your site or application content here -->
-
-        <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script> -->
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <!-- // --> <script>
-        //     (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        //     function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        //     e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        //     e.src='//www.google-analytics.com/analytics.js';
-        //     r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        //     ga('create','UA-XXXXX-X');ga('send','pageview');
-        // </script>
-    </body>
-<!-- >>>>>>> 53a792b23ff4c56ea4b6f27b61631f25d95b5816 -->
-</html>
