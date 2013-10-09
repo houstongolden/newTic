@@ -50,6 +50,16 @@ a {
 }
 
 
+
+/*.xbox:hover{
+transition-duration: .6s;
+background: url('http://cloud-media.com/wp-content/uploads/2013/09/my-baby-photo.jpg');
+background-size: 110px 120px;
+background-repeat: no-repeat;
+}*/
+
+
+
 .sqr {
   background-color: #91BED4;
   margin: 2px;
@@ -180,27 +190,16 @@ a {
 }
 
 
-.style {clear:both;}
+.clear {clear:both;}
 
-.row1 {
-  display: inline-block;
-}
-.row2 {
-  display: inline-block;
-  
-}
-.row3 {
-  display: inline-block;
-  
-}
+.box {float: left;}
 
 
-.clearfix {
-  *zoom: 1;
+
+.css-form input.ng-invalid.ng-dirty {
+  background-color: #FA787E;
 }
 
-.clearfix:after {
-     content: "";
-  clear: both;
-  display: table;
+.css-form input.ng-valid.ng-dirty {
+  background-color: #78FA89;
 }

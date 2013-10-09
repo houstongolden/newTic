@@ -25,12 +25,8 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-        
-
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 </head>
-
 
 
 <body>
@@ -52,28 +48,33 @@
 
 
 
-
-
 <div id="bodyContainer1">
 
-<div class="gameContainer">
-    <div>
-    Next Player: {{nextMove}}
-<!--<button ng-click="reset()">reset board</button>
-    <button ng-click="levelUp()">Level Up</button>  -->
 
-    <br />
+<div class="gameContainer">
+
+    <div ng-controller="TicTacToeCntl">
+      <form novalidate class="css-form">
+        Name:
+        <input type="text" ng-model="user.name" required /><br />
+        <button><a ng-click="reset()">RESET</a></button>
+        <button ng-click="update(user)">SAVE</button>
+      </form>
+    <p>{{Player1.name}} : {{nextMove}} </p>
+    </div>    
+    
     <div class="winner" ng-show="winner">Player {{winner}} has won!</div>
-      <table class="board">
-        <tr ng-repeat="row in board">
-          <td id="slide" ng-class="{xbox:cell == 'X', obox:cell == 'O'}" ng-repeat="cell in row" ng-style="cellStyle"
-              ng-click="dropPiece($parent.$index, $index)">{{cell}}</td>
-        </tr>
-      </table>
-  <br />
-<!--    <a href='#'><img ng-src="{{link}}"/></a>
-        <button ng-click="changeLink()">Change Photo</button> -->
-    </div>
+      <div class="board">
+        <div ng-repeat="row in board">
+          <div class="box" id="slide" ng-class="{xbox:cell == 'X', obox:cell == 'O'}" ng-repeat="cell in row" ng-style="cellStyle"
+              ng-click="dropPiece($parent.$index, $index)">{{cell}}</div>
+              <div class="clear"></div>
+        </div>
+      </div>
+    
+
+
+
 </div>
 
 

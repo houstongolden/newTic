@@ -8,7 +8,50 @@ function TicTacToeCntl($scope, $location) {
     'cursor': 'pointer'
   };
 
+
+// var sideLength = 8;
+
+// for(r = 0; r < sideLength; ++r)
+// {
+//   var myNewArray = [];
+//   $scope.othello.push([]);
+//   for(c = 0; c<sideLength; ++c)
+//   {
+//     myNewArray.push( {val: '', r:c, c:c} )
+//   }
+// }
+
+// var midPoint = Math.floor(sideLength / 2)
+// $scope.TicTacToeCntl[midPoint-1][midPoint].val=$scope.TicTacToeCntl[midPoint-1][midPoint].val="X";
+// $scope.TicTacToeCntl[midPoint-1][midPoint].val=$scope.TicTacToeCntl[midPoint-1][midPoint].val="X";
+
  
+  // $scope.reset = function() {
+  //   $scope.board = [
+  //     [{val: '', r:0, c:0}, {val: '', r:0, c:1}, {val: '', r:0, c:2}],
+  //     [val: '', r:1, c:0}, {val: '', r:1, c:1}, {val: '', r:1, c:2}],
+  //     [val: '', r:2, c:0}, {val: '', r:2, c:1}, {val: '', r:2, c:2}]
+  //   ];
+  //   $scope.nextMove = 'X';
+  //   $scope.winner = '';
+
+  // };
+
+ 
+ $scope.Player1 = {name: 'Player1'}
+ $scope.Player2 = {name: 'Player2'}
+ 
+  $scope.update = function(user) {
+    $scope.master = angular.copy(user);
+  };
+ 
+  $scope.reset = function() {
+    $scope.master = angular.copy($scope.user, $scope.master);
+  };
+ 
+  $scope.reset();
+
+
   $scope.reset = function() {
     $scope.board = [
       ['', '', ''],
@@ -31,6 +74,18 @@ function TicTacToeCntl($scope, $location) {
     $scope.winner = '';
 
   };
+
+    $scope.findImg = function(cell) {
+    switch(cell.val)
+    {
+      case "X":
+      return "http://cloud-media.com/wp-content/uploads/2013/09/my-baby-photo.jpg";
+      case "O":
+      return "http://cloud-media.com/wp-content/uploads/2013/10/Profile-Nova-Explosion.jpg";
+      case "":
+      return "1x1.png";
+    }
+  }
  
   $scope.dropPiece = function(row, col) {
     if (!$scope.winner && !$scope.board[row][col]) {
@@ -50,7 +105,7 @@ function TicTacToeCntl($scope, $location) {
   //   $location.search({board: rows.join(';') + '/' + $scope.nextMove});
   // }
  
-  function grade() {
+  $scope.grade = function() {
     var b = $scope.board;
     $scope.winner =
       row(0) || row(1) || row(2) ||
