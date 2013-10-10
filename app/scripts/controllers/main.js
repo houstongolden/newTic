@@ -1,6 +1,7 @@
 'use strict'
+
 angular.module('newTicApp')
-//on line 4, I deleted a space between 'function' and '('
+
   .controller('TicTacToeCntl', ['$scope', 'angularFire', function($scope, angularFire) {
     $scope.board=[];
     var ref = new Firebase("https://tictactoeio.firebaseio.com/board")
@@ -16,14 +17,6 @@ angular.module('newTicApp')
         'vertical-align': 'middle',
         'cursor': 'pointer'
     };
- 
-    $scope.Player1 = {name: 'Player1'};
-    $scope.Player2 = {name: 'Player2'};
-
-    $scope.update = function(user) {
-      $scope.master = angular.copy(user);
-    };
-
 
     $scope.reset = function(){
       $scope.board = [
@@ -36,19 +29,6 @@ angular.module('newTicApp')
 
     };
 
-    $scope.levelUp = function(){
-      $scope.board = [
-        ['', '', '', ''],
-        ['', '', '', ''],
-        ['', '', '', ''],
-        ['', '', '', '']
-      ];
-      $scope.nextMove = 'X';
-      $scope.winner = '';
-
-    };
-
-     
     $scope.dropPiece = function(row, col){
       if (!$scope.winner && !$scope.board[row][col]) {
         $scope.board[row][col] = $scope.nextMove;
@@ -67,7 +47,13 @@ angular.module('newTicApp')
       });
       $location.search({board: rows.join(';') + '/' + $scope.nextMove});
     };
-     
+    
+
+    $scope.$watch(function() {
+      return $scope.winner;
+    })
+
+
     $scope.grade = function(){
       var b = $scope.board;
       $scope.winner =
@@ -78,7 +64,6 @@ angular.module('newTicApp')
       function col(col){ return same(b[0][col], b[1][col], b[2][col]);};
       function diagonal(i){ return same(b[0][1-i], b[1][1], b[2][1+i]);};
       function same(a, b, c){ return (a==b && b==c) ? a : '';};
-      console.log("hey");
     };
      
     function readUrl(value){
@@ -93,6 +78,93 @@ angular.module('newTicApp')
     }
   });
 }]);
+
+
+
+ 
+    // $scope.Player1 = {name: 'Player1'};
+    // $scope.Player2 = {name: 'Player2'};
+
+    // $scope.update = function(user) {
+    //   $scope.master = angular.copy(user);
+    // };
+
+
+
+
+// $scope.board = {
+  
+
+// player_turn: 1,
+
+// ticTacToe: [[{val:'', r:0,c:0},{val:'',r:0,c:1},{val:'',r:0,c:2}],
+// [{val:'',r:1,c:0},{val:'',r:1,c:1},{val:'',r:1,c:2}],
+// [{val:'', r:2,c:0},{val:'',r:2,c:1},{val:'',r:2,c:2}]],
+
+// players_in_room: 0,
+
+// game_ended: false,
+
+
+
+// };
+
+
+
+
+
+    // $scope.levelUp = function(){
+    //   $scope.board = [
+    //     ['', '', '', ''],
+    //     ['', '', '', ''],
+    //     ['', '', '', ''],
+    //     ['', '', '', '']
+    //   ];
+    //   $scope.nextMove = 'X';
+    //   $scope.winner = '';
+
+    // };
+
+     
+
+
+
+
+
+
+
+// $scope.queue = {}
+
+// angularFire(ref, $scope, "queue", {})
+
+// if $scope.queue != {}
+//   join
+// else I am 'Player2'
+//   create
+// I am 'Player3'
+
+
+
+// $scope.games = {
+//   board: [[],[],[]]
+//   gameWon: false
+//   Player1:
+//   Player2:
+//   Player3:
+//   turn: ""
+
+// }
+
+// var ref = new Firebase.games
+
+// var id = ref.push
+
+// $scope.queue = {
+//   gameID: "id"
+
+// }
+
+
 
 
 // var sideLength = 8;
