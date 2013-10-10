@@ -29,6 +29,8 @@ angular.module('newTicApp')
 
     };
 
+
+
     $scope.dropPiece = function(row, col){
       if (!$scope.winner && !$scope.board[row][col]) {
         $scope.board[row][col] = $scope.nextMove;
@@ -78,6 +80,13 @@ angular.module('newTicApp')
     }
   });
 }]);
+
+
+
+
+
+
+
 
 
 
