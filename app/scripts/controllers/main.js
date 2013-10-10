@@ -11,7 +11,7 @@ angular.module('newTicApp')
     $scope.cellStyle= {
         'height': '150px',
         'width': '150px',
-        'border': '1px solid black',
+        'border': '1px solid white',
         'text-align': 'center',
         'vertical-align': 'middle',
         'cursor': 'pointer'
@@ -25,28 +25,32 @@ angular.module('newTicApp')
     };
 
 
-    $scope.reset = function(){
-      $scope.board = [
-        ['', '', ''],
-        ['', '', ''],
-        ['', '', '']
-      ];
-      $scope.nextMove = 'X';
-      $scope.winner = '';
+    // $scope.reset = function(){
+    //   $scope.board = [
+    //     ['', '', ''],
+    //     ['', '', ''],
+    //     ['', '', '']
+    //   ];
+    //   $scope.nextMove = 'X';
+    //   $scope.winner = '';
+
+    // };
+
+    $scope.rooms = {
+      board: ['', '', ''],
+             ['', '', ''],
+             ['', '', '']
+      nextMove: 'X',
+      winner: '',
+      playerTurn: 0,
+      gameWon: false,
+      player1: true,
+      player2: false,
+
+
 
     };
 
-    $scope.levelUp = function(){
-      $scope.board = [
-        ['', '', '', ''],
-        ['', '', '', ''],
-        ['', '', '', ''],
-        ['', '', '', '']
-      ];
-      $scope.nextMove = 'X';
-      $scope.winner = '';
-
-    };
 
      
     $scope.dropPiece = function(row, col){
@@ -78,7 +82,7 @@ angular.module('newTicApp')
       function col(col){ return same(b[0][col], b[1][col], b[2][col]);};
       function diagonal(i){ return same(b[0][1-i], b[1][1], b[2][1+i]);};
       function same(a, b, c){ return (a==b && b==c) ? a : '';};
-      console.log("hey");
+      
     };
      
     function readUrl(value){
