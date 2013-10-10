@@ -25,31 +25,31 @@ angular.module('newTicApp')
     };
 
 
-    // $scope.reset = function(){
-    //   $scope.board = [
-    //     ['', '', ''],
-    //     ['', '', ''],
-    //     ['', '', '']
-    //   ];
-    //   $scope.nextMove = 'X';
-    //   $scope.winner = '';
-
-    // };
-
-    $scope.rooms = {
-      board: ['', '', ''],
-             ['', '', ''],
-             ['', '', '']
-      nextMove: 'X',
-      winner: '',
-      playerTurn: 0,
-      gameWon: false,
-      player1: true,
-      player2: false,
-
-
+    $scope.reset = function(){
+      $scope.board = [
+        ['', '', ''],
+        ['', '', ''],
+        ['', '', '']
+      ];
+      $scope.nextMove = 'X';
+      $scope.winner = '';
 
     };
+
+    // $scope.rooms = {
+    //   board: ['', '', ''],
+    //          ['', '', ''],
+    //          ['', '', '']
+    //   nextMove: 'X',
+    //   winner: '',
+    //   playerTurn: 0,
+    //   gameWon: false,
+    //   player1: true,
+    //   player2: false,
+
+
+
+    // };
 
 
      
